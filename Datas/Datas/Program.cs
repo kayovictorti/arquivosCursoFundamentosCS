@@ -38,6 +38,9 @@ namespace Datas
 
 
             var data = DateTime.Now;
+            Console.WriteLine(data);
+
+            Console.WriteLine(DateTime.Now.ToString("yyyyMMdd"));
 
 
             //r, s e u são padrões muito utilizados
