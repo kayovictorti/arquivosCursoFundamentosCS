@@ -5,20 +5,19 @@ namespace ExercicioContaBancaria
 {
     class Conta
     {
-        public int NumConta { get; private set; }
-        public string Nome { get; set; }
+        public string NumConta { get; private set; }
+        public string Titular { get; set; }
         public double Saldo { get; private set; }
 
-        public Conta()
-        {
-
-        }
-
-        public Conta(int numConta, string nome, double saldo)
+        public Conta(string numConta, string titular)
         {
             NumConta = numConta;
-            Nome = nome;
-            Saldo = saldo;
+            Titular = titular;
+        }
+
+        public Conta(string numConta, string titular, double depositoInicial) : this(numConta, titular)
+        {
+            Deposito(depositoInicial);
         }
 
         public void Deposito(double valor)
@@ -28,7 +27,7 @@ namespace ExercicioContaBancaria
 
         public void Saque(double valor)
         {
-            Saldo -= valor;
+            Saldo -= (valor + 5);
         }
 
         public override string ToString()
@@ -36,7 +35,8 @@ namespace ExercicioContaBancaria
             return "Número da conta: "
                 + NumConta
                 + ", "
-                + "Nome: "
+                + "Titular: "
+                + Titular
                 + ", "
                 + "Saldo: R$"
                 + Saldo.ToString("F2", CultureInfo.InvariantCulture);
